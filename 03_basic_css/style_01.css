@@ -1,0 +1,19 @@
+/*
+  Basic CSS selector example.
+*/
+
+h1 {
+    color: blue;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+p {
+    color: red;
+}
+
+/*
+  How does this work? To understand how this works it is important to
+  understand how the browser represents HTML inside the browser. In
+  particular, as the Document Object Model (DOM).
+*/

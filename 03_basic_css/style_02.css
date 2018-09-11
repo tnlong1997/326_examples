@@ -1,0 +1,69 @@
+/* simple selectors */
+span {
+    border: 1px solid black;
+    background-color: lime;
+}
+
+div {
+    color: blue;
+}
+
+/* class selectors */
+.first {
+    font-weight: bold;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+/* id selectors */
+#polite {
+    font-family: cursive;
+}
+
+#rude {
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+/* universal selector
+* {
+    padding: 5px;
+    border: 1px solid black;
+    background: rgba(255,0,0,0.25);
+}
+*/
+
+/* combinators */
+
+/* select all p elements inside section elements. */
+section p {
+    color: blue;
+}
+
+/* select all p elements where the parent is a section element */
+section > p {
+    background-color: yellow;
+}
+
+/* select all p elements that are placed immediately after after h2
+   elements */
+h2 + p {
+    text-transform: uppercase;
+}
+
+/* select every p element that are preceeded by an h2 element */
+h2 ~ p {
+    border: 1px dashed black;
+}
+
+/** attribute selectors */
+a[href$=".pdf"] {
+    background-image: url("pdf_preview.png");
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    color: red;
+    text-decoration: none;
+    font-family: "gill sans", helvetica, sans-serif;
+}

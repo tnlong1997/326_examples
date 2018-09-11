@@ -1,4 +1,4 @@
-# 02 Basic HTML
+# 03 Basic CSS
 
 To run this example in your programming environment first start the
 HTTP server:
