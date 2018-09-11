@@ -18,3 +18,10 @@ version:
 ```bash
 $ git pull
 ```
+
+To read the documentation associated with each of the example
+directories you need to navigate to the corresponding examples
+directory and read the `README.md` file in that directory. You can do
+this from your browser on the github page for this repository or
+navigate to the corresponding directory from the command line and use
+an editor.
