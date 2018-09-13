@@ -47,7 +47,7 @@ section > p {
     background-color: yellow;
 }
 
-/* select all p elements that are placed immediately after after h2
+/* select all p elements that are placed immediately after h2
    elements */
 h2 + p {
     text-transform: uppercase;

@@ -1,0 +1,11 @@
+[class*="col"] {
+    border: 1px solid black;
+}
+
+body {
+    margin: 10px;
+}
+
+.navbar-white {
+    color: white;
+}
