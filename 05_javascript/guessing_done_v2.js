@@ -14,28 +14,26 @@
 window.addEventListener('load', init);
 
 // Returns a random number between 1 and 100.
-function getRandomNumber()
-{
+function getRandomNumber() {
   return Math.floor(Math.random() * 100) + 1;;
 }
 
 // Initializes the game UI and state.
-function init()
-{
+function init() {
   console.log('initializing Guessing Game');
-  
+
   let UI = {
-    guesses : document.querySelector('.guesses'),
-    lastResult : document.querySelector('.lastResult'),
-    lowOrHi : document.querySelector('.lowOrHi'),
-    guessSubmit : document.querySelector('.guessSubmit'),
-    guessField : document.querySelector('.guessField'),
-    resultParas : document.querySelectorAll('.resultParas p')
+    guesses: document.querySelector('.guesses'),
+    lastResult: document.querySelector('.lastResult'),
+    lowOrHi: document.querySelector('.lowOrHi'),
+    guessSubmit: document.querySelector('.guessSubmit'),
+    guessField: document.querySelector('.guessField'),
+    resultParas: document.querySelectorAll('.resultParas p')
   };
 
   let gameState = {
-    randomNumber : getRandomNumber(),
-    guessCount : 1
+    randomNumber: getRandomNumber(),
+    guessCount: 1
   };
 
   // We create an event listener that calls an "anonymous function"
@@ -51,8 +49,7 @@ function init()
   });
 }
 
-function checkGuess(UI, gameState)
-{
+function checkGuess(UI, gameState) {
   let userGuess = Number(UI.guessField.value);
 
   // Update the UI to show the previous guesses.
@@ -62,28 +59,23 @@ function checkGuess(UI, gameState)
   UI.guesses.textContent += userGuess + ' ';
 
   // Evaluate the user's guess.
-  if (userGuess === gameState.randomNumber)
-  {
+  if (userGuess === gameState.randomNumber) {
     UI.lastResult.textContent = 'Congratulations! You got it right!';
     UI.lastResult.style.backgroundColor = 'green';
     UI.lowOrHi.textContent = '';
     setGameOver(UI, gameState);
   }
-  else if (gameState.guessCount === 10)
-  {
+  else if (gameState.guessCount === 10) {
     UI.lastResult.textContent = '!!!GAME OVER!!!';
     setGameOver(UI, gameState);
   }
-  else
-  {
+  else {
     UI.lastResult.textContent = 'Wrong!';
     UI.lastResult.style.backgroundColor = 'red';
-    if (userGuess < gameState.randomNumber)
-    {
+    if (userGuess < gameState.randomNumber) {
       UI.lowOrHi.textContent = 'Last guess was too low!';
     }
-    else if (userGuess > gameState.randomNumber)
-    {
+    else if (userGuess > gameState.randomNumber) {
       UI.lowOrHi.textContent = 'Last guess was too high!';
     }
   }
@@ -95,8 +87,7 @@ function checkGuess(UI, gameState)
   UI.guessField.focus();
 }
 
-function setGameOver(UI, gameState)
-{
+function setGameOver(UI, gameState) {
   UI.guessField.disabled = true;
   UI.guessSubmit.disabled = true;
   UI.resetButton = document.createElement('button');
@@ -110,13 +101,11 @@ function setGameOver(UI, gameState)
   });
 }
 
-function resetGame(UI, gameState)
-{
+function resetGame(UI, gameState) {
   gameState.guessCount = 1;
 
   let resultParas = UI.resultParas;
-  for (let i = 0; i < resultParas.length; i++)
-  {
+  for (let i = 0; i < resultParas.length; i++) {
     resultParas[i].textContent = '';
   }
 
