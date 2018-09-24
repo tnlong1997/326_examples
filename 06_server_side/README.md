@@ -1,7 +1,7 @@
 # 06 Server Side
 
 To run this example in your programming environment first `cd` into
-the `mytestsite` and run the following:
+the `mytestsite` and run the following (See **Note** below):
 
 ```bash
 $ python3 manage.py runserver 0.0.0.0:8080
@@ -23,10 +23,16 @@ machine environment.
 
 **Note**: In order for us to make sure this application works from
   within the class programming environment we had to update the
-  `mytestsite/mytestsite/settings.py` file to include the following:
+  `ALLOWED_HOSTS` variable in the `mytestsite/mytestsite/settings.py`
+  file to include the following:
 
 ```python
 ALLOWED_HOSTS = [
-    '0.0.0.0'
+    '0.0.0.0',
+    'localhost'
 ]
 ```
+
+This will configure Django to correctly forward incoming requests to 
+localhost on port 8080 to your Django application running in the
+virtual machine environment.
