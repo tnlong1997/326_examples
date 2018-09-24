@@ -7,6 +7,12 @@ the `mytestsite` and run the following (See **Note** below):
 $ python3 manage.py runserver 0.0.0.0:8080
 ```
 
+We use the IP address designation `0.0.0.0` to tell Django to bind
+or listen on all IP addresses that the computer supports. If you
+do not provide this you will not be able to send HTTP requests to
+Django running in the class programming environment VM. Take a
+look at [this StackOverflow post](https://stackoverflow.com/questions/1621457/about-ip-0-0-0-0-in-django).
+
 Next, you need to contact the HTTP server using an HTTP client. You
 can easily test this from the command line:
 
@@ -20,19 +26,3 @@ recommend using chrome, however, any browser should work. The HTTP
 request will be sent to your localhost and port. We have mapped port
 8080 on your host operating system to port 8080 in your virtual
 machine environment.
-
-**Note**: In order for us to make sure this application works from
-  within the class programming environment we had to update the
-  `ALLOWED_HOSTS` variable in the `mytestsite/mytestsite/settings.py`
-  file to include the following:
-
-```python
-ALLOWED_HOSTS = [
-    '0.0.0.0',
-    'localhost'
-]
-```
-
-This will configure Django to correctly forward incoming requests to 
-localhost on port 8080 to your Django application running in the
-virtual machine environment.
