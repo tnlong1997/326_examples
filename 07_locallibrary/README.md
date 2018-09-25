@@ -1,4 +1,4 @@
-# 06 Server Side
+# 07 Django Skeleton
 
 To run this example in your programming environment first `cd` into
 the `mytestsite` and run the following (See **Note** below):
