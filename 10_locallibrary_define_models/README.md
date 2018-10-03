@@ -1,4 +1,4 @@
-# 09 Intro to Relational Databases and Modeling
+# 10 Defining the Local Library Models
 
 ## Installing Django
 
@@ -10,20 +10,25 @@ Django:
 $ pip3 install django
 ```
 
+## Installing Faker
+
+[Faker](https://faker.readthedocs.io/en/latest/index.html) is a Python
+library that is used to generate "fake" data. This is tremendously
+helpful for building applications that require some data for
+testing. To use the example code, you must install Faker:
+
+```bash
+$ pip3 install faker
+```
+
 ## Initializing the Database
 
-This class covers relational databases and modeling. In particular, a
-model is defined using [Django's modeling language][models_01]. The
-examples in this lesson follow MDN's Django model definition
-readings. In particular, this example refers to the code starting at
-the [Model Primer][mdn_01] section to the [Model Management][mdn_02]
-section.
-
-We also include some additional scripts that make adding mock data to
-the database easier. In particular, we include an
-[`init.py`](locallibrary/init.py) script that demonstrates how you can
-add data to the database programmatically. This script can be easily
-invoked from that directory with the following command:
+This class covers relational databases and modeling. We also include
+some additional scripts that make adding mock data to the database
+easier. In particular, we include an [`init.py`](locallibrary/init.py)
+script that demonstrates how you can add data to the database
+programmatically. This script can be easily invoked from that
+directory with the following command:
 
 ```bash
 $ python3 manage.py shell < init.py
@@ -38,8 +43,8 @@ manually:
 
 ```bash
 $ python3 manage.py shell
->>> from catalog import models
->>> record = models.MyModelName(my_field_name='Instance #1')
+>>> from catalog.models import Genre, Book, BookInstance, Author
+>>> genre = Genre(name='Science Fiction')
 ```
 
 This is a great way to explore your data model interactively. In
@@ -80,6 +85,8 @@ recommend using chrome, however, any browser should work. The HTTP
 request will be sent to your localhost and port. We have mapped port
 8080 on your host operating system to port 8080 in your virtual
 machine environment.
+
+[so_01]: https://stackoverflow.com/questions/7354588/django-charfield-vs-textfield
 
 [models_01]: https://docs.djangoproject.com/en/2.1/topics/db/models
 [mdn_01]: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models#Model_primer
