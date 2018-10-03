@@ -1,6 +1,6 @@
-# 07 Server-Side Introduction
+# 08 Intro to Django and Creating a Skeleton Site
 
-To run any of the examples this week you need to make sure Django is
+To run any of the examples this class you need to make sure Django is
 installed. To do this you must run the following command to install
 Django:
 
@@ -9,7 +9,7 @@ $ pip3 install django
 ```
 
 To run the examples in your programming environment first `cd` into
-the one of the Django projects and run the following:
+one of the Django projects and run the following:
 
 ```bash
 $ python3 manage.py runserver 0.0.0.0:8080
