@@ -21,7 +21,7 @@ section.
 
 We also include some additional scripts that make adding mock data to
 the database easier. In particular, we include an
-`[init.py](locallibrary/init.py)` script that demonstrates how you can
+[`init.py`](locallibrary/init.py) script that demonstrates how you can
 add data to the database programmatically. This script can be easily
 invoked from that directory with the following command:
 
@@ -44,7 +44,7 @@ $ python3 manage.py shell
 
 This is a great way to explore your data model interactively. In
 addition to `init.py`, we have also included an
-`[init.sh](locallibrary/init.sh)` script. This is a helper script that
+[`init.sh`](locallibrary/init.sh) script. This is a helper script that
 will recreate the database when it is invoked from the command like
 so:
 
