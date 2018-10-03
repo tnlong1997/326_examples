@@ -13,10 +13,10 @@ $ pip3 install django
 ## Initializing the Database
 
 This class covers relational databases and modeling. In particular, a
-model is defined using [Django's modeling language](models_01). The
+model is defined using [Django's modeling language][models_01]. The
 examples in this lesson follow MDN's Django model definition
 readings. In particular, this example refers to the code starting at
-the [Model Primer](mdn_01) section to the [Model Management](mdn_02)
+the [Model Primer][mdn_01] section to the [Model Management][mdn_02]
 section.
 
 We also include some additional scripts that make adding mock data to
