@@ -41,6 +41,25 @@ class Book(models.Model):
     # been defined so we can specify the object above.
     genre = models.ManyToManyField(Genre,
                                    help_text='Select a genre for this book')
+
+    def display_genre(self):
+        """Create a string for the Genre. This is required to display genre in Admin."""
+        # This function uses the string object's join method to "join"
+        # all the genre strings into a single string separated by ',
+        # '. This uses Python's list comprehension feature. If you do
+        # not know what this is you should look this up to see what
+        # this is. It is a very powerful language feature!
+        #
+        # We also use Python's list slicing notation ([:3]). This
+        # indicates that we will only take the first 3 elements from
+        # the list. This is done so we only display some of the genres
+        # rather than all of them - efficiency!
+        return ', '.join(genre.name for genre in self.genre.all()[:3])
+
+    # This defines a property on the method (yes, functions and
+    # methods can have properties in Python) that can be used in the
+    # admin site for this method.
+    display_genre.short_description = 'Genre'
     
     def __str__(self):
         """String for representing the Model object."""
