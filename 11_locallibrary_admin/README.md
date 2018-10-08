@@ -57,6 +57,12 @@ so:
 $ ./init.sh
 ```
 
+## Super User Creation
+
+We have extended the `init.py` script to create a superuser account in
+Django. The superuser account allows you to access the admin site with
+the generated username and password. See `init.py` for more details.
+
 ## Running Django
 
 To run the examples in your programming environment first `cd` into
