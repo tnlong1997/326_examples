@@ -25,7 +25,7 @@ for i in range(1, 10):
     a_fname = fake.first_name()
     a_lname = fake.last_name()
     a_dob = fake.date_of_birth()
-    a_dod = a_dob + timedelta(days=365*fake.random_int(65,100))
+    a_dod = a_dob + timedelta(days=365 * fake.random_int(65, 100))
     author = Author(first_name=a_fname,
                     last_name=a_lname,
                     date_of_birth=a_dob,
@@ -87,3 +87,30 @@ print(f'Author: {book.author}')
 print(f'ISBN: {book.isbn}')
 print(f'Summary:\n{textwrap.fill(book.summary, 77)}')
 
+# Create a super user to use the admin site.
+from django.contrib.auth.models import User
+username = 'admin'
+password = 'admin'
+email = 'admin@326.edu'
+adminuser = User.objects.create_user(username, email, password)
+adminuser.save()
+adminuser.is_staff = True
+adminuser.save()
+message = f"""
+====================================================================
+The database has been setup with the following credentials:
+
+  username: {username}
+  password: {password}
+  email: {email}
+
+You will need to use the username {username} and password {password}
+to login to the administrative webapp in Django.
+
+Please visit http://localhost:8080/admin to login to the admin app.
+Run the django server with:
+
+  $ python3 manage.py runserver 0.0.0.0:8080"
+====================================================================
+"""
+print(message)
