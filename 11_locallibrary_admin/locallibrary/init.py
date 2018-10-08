@@ -94,6 +94,7 @@ password = 'admin'
 email = 'admin@326.edu'
 adminuser = User.objects.create_user(username, email, password)
 adminuser.save()
+adminuser.is_superuser = True
 adminuser.is_staff = True
 adminuser.save()
 message = f"""
