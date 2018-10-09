@@ -1,7 +1,11 @@
-from catalog.models import Genre, Book, BookInstance, Author
-from faker import Faker
-from datetime import timedelta
 import textwrap
+from datetime import timedelta
+
+from catalog.models import Author
+from catalog.models import Book
+from catalog.models import BookInstance
+from catalog.models import Genre
+from faker import Faker
 
 fake = Faker()
 
