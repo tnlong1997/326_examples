@@ -4,8 +4,10 @@ from catalog.models import Author, Genre, Book, BookInstance
 
 admin.site.register(Genre)
 
+
 class BookInline(admin.TabularInline):
     model = Book
+
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
@@ -32,8 +34,11 @@ class AuthorAdmin(admin.ModelAdmin):
 # related model in the detail view. In this case, we define a tabular
 # inline class that will allow us to display BookInstance data in the
 # same Book detail view. See where it is used in the BookAdmin class.
+
+
 class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
+
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
@@ -54,15 +59,14 @@ class BookAdmin(admin.ModelAdmin):
     # BookInstance model defines a "foreign key" on Book, Django will
     # automatically be able to look up the associated book instances.
     inlines = [BooksInstanceInline]
-    
-@admin.register(BookInstance) 
+
+
+@admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ('id',
                     'status',
                     'due_back')
 
-#    inlines = [BookInline]
-    
     # By setting the list_filter variable in an Admin class it will be
     # used to populate a "filter" UI box component in the admin site
     # to allow the user to only display particular items.
@@ -78,4 +82,3 @@ class BookInstanceAdmin(admin.ModelAdmin):
         (None, {'fields': ('book', 'imprint', 'id')}),
         ('Availability', {'fields': ('status', 'due_back')}),
     )
-
