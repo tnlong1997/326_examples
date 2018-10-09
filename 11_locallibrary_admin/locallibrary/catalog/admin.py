@@ -13,22 +13,17 @@ class BookInline(admin.TabularInline):
 class AuthorAdmin(admin.ModelAdmin):
     # By setting the list_display variable in an Admin class will have
     # it display only the fields in the model that are specified.
-    list_display = ('last_name',
-                    'first_name',
-                    'date_of_birth',
-                    'date_of_death')
+    list_display = ("last_name", "first_name", "date_of_birth", "date_of_death")
 
     # By setting the fields variable in an Admin class will only
     # display the specified fields in the "detail view" of the
     # model. Fields are displayed vertically by default, but will
     # display horizontally if you further group them in a tuple as we
     # do here for the birth and death dates.
-    fields = ['first_name',
-              'last_name',
-              ('date_of_birth',
-               'date_of_death')]
+    fields = ["first_name", "last_name", ("date_of_birth", "date_of_death")]
 
     inlines = [BookInline]
+
 
 # Sometimes, it is useful to display associated information of a
 # related model in the detail view. In this case, we define a tabular
@@ -49,9 +44,7 @@ class BookAdmin(admin.ModelAdmin):
     # a costly operation when accessing the database. So, we have it
     # display the results of a function call (display_genre) - see the
     # defintion of this function in the Book class in models.py.
-    list_display = ('title',
-                    'author',
-                    'display_genre')
+    list_display = ("title", "author", "display_genre")
 
     # This allows us to display information about the corresponding
     # book instances of this book. It is clearly useful to be able to
@@ -63,14 +56,12 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
-    list_display = ('id',
-                    'status',
-                    'due_back')
+    list_display = ("id", "status", "due_back")
 
     # By setting the list_filter variable in an Admin class it will be
     # used to populate a "filter" UI box component in the admin site
     # to allow the user to only display particular items.
-    list_filter = ('status', 'due_back')
+    list_filter = ("status", "due_back")
 
     # You can add "sections" to group related model information within
     # the detail forum using the "fieldsets" attribute. This is done
@@ -79,6 +70,6 @@ class BookInstanceAdmin(admin.ModelAdmin):
     # by a dictionary containing the entry "fields" that correspond to
     # the fields the section will have.
     fieldsets = (
-        (None, {'fields': ('book', 'imprint', 'id')}),
-        ('Availability', {'fields': ('status', 'due_back')}),
+        (None, {"fields": ("book", "imprint", "id")}),
+        ("Availability", {"fields": ("status", "due_back")}),
     )
