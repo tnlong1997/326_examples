@@ -1,11 +1,11 @@
 import textwrap
 from datetime import timedelta
 
-from catalog.models import Author
-from catalog.models import Book
-from catalog.models import BookInstance
-from catalog.models import Genre
+# Create a super user to use the admin site.
+from django.contrib.auth.models import User
 from faker import Faker
+
+from catalog.models import Author, Book, BookInstance, Genre
 
 fake = Faker()
 
@@ -85,8 +85,6 @@ print(f"Author: {book.author}")
 print(f"ISBN: {book.isbn}")
 print(f"Summary:\n{textwrap.fill(book.summary, 77)}")
 
-# Create a super user to use the admin site.
-from django.contrib.auth.models import User
 
 username = "admin"
 password = "admin"
