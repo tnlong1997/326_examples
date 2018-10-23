@@ -27,6 +27,9 @@ def index(request):
     return render(request, "index.html", context=context)
 
 
+# Additions Below
+
+
 class BookListView(generic.ListView):
     model = Book
     template_name = "book_list.html"
